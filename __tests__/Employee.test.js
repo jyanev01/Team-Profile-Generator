@@ -13,7 +13,7 @@ test('creates an employee object', () => {
 test('displays employee ID', () => {
     const employee = new Employee('Jordan', 1001, 'jordanyanev@gmail.com');
 
-    expect(employee.getID()).toEqual(expect.any(Number));
+    expect(employee.getId()).toEqual(expect.any(Number));
 });
 
 // gets email from getEmail()
