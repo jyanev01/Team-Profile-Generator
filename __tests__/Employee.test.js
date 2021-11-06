@@ -23,9 +23,9 @@ test('display employee email', () =>{
     expect(employee.getEmail()).toEqual(expect.stringContaining(employee.email.toString()));
 });
 
-// get company title from getPosition()
+// get company title from getRole()
 test('display company title', () => {
     const employee = new Employee('Jordan', 31, 'jordanyanev@gmail.com');
 
-    expect(employee.getPosition()).toEqual('Employee');
+    expect(employee.getRole()).toEqual('Employee');
 });
