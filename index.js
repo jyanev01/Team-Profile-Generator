@@ -12,22 +12,22 @@ const askManager = () => {
         {
             type: 'input',
             message: "What is the Manager's name?",
-            name: 'mgrName'
+            name: 'name'
         },
         {
             type: 'input',
             message: "What is the Manager's ID?",
-            name: 'mgrId'
+            name: 'id'
         },
         {
             type: 'input',
             message: "What is the Manager's email?",
-            name: 'mgrEmail'
+            name: 'email'
         },
         {
             type: 'input',
             message: "What is the Manager's Office number?",
-            name: 'mgrOfficeNumber'
+            name: 'officeNumber'
         }
     ]).then((answers) => {
         console.log(answers)
@@ -35,8 +35,6 @@ const askManager = () => {
         employeeArr.push(manager)
         console.log(manager)
         console.log(manager.getRole())
-
-        
     })
     // attempt to call mainMenu() function after askManager() function has completed
     // .then(mainMenu())
@@ -66,19 +64,76 @@ const mainMenu = () => {
                 }
         }
     ])
-}
+};
 
 askManager();
 // mainMenu();
 
 
-// const askEngineer = () => {
+const askEngineer = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "What is the Engineer's name?",
+            name: 'engName'
+        },
+        {
+            type: 'input',
+            message: "What is the Engineer's ID?",
+            id: 'engId'
+        },
+        {
+            type: 'input',
+            message: "What is the Engineer's email?",
+            email: 'engEmail'
+        },
+        {
+            type: 'input',
+            message: "What is the Engineer's GitHub?",
+            github: 'engGitHub'
+        }
+    ]).then((answers) => {
+        console.log(answers)
+        const engineer = new Engineer(answers)
+        employeeArr.push(engineer)
+        console.log(engineer)
+        console.log(engineer.getRole())
+    })
 
-// }
+}
 
-// const askIntern = () => {
 
-// }
+const askIntern = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "What is the Intern's name?",
+            name: 'intName'
+        },
+        {
+            type: 'input',
+            message: "What is the Intern's ID?",
+            id: 'intId'
+        },
+        {
+            type: 'input',
+            message: "What is the Intern's email?",
+            email: 'intEmail'
+        },
+        {
+            type: 'input',
+            message: "What is the Intern's School?",
+            school: 'intSchool'
+        }
+    ]).then((answers) => {
+        console.log(answers)
+        const intern = new Intern(answers)
+        employeeArr.push(intern)
+        console.log(intern)
+        console.log(intern.getRole())
+    })
+
+}
 
 
 // askEngineer();
