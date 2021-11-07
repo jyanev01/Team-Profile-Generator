@@ -31,12 +31,11 @@ const askManager = () => {
             name: 'mngOfficeNumber'
         }
     ]).then((answers) => {
-        console.log(answers)
+        // console.log(answers)
         const manager = new Manager(answers.mngrName, answers.mngId, answers.mngrEmail, answers.mngOfficeNumber)
-        
         employeeArr.push(manager)
         console.log(manager)
-        console.log(manager.getRole())
+        // console.log(manager.getRole())
         return;
     })
     //call mainMenu() function after askManager() function has completed
@@ -60,8 +59,9 @@ const mainMenu = () => {
         } else if (roleInput.role === 'Intern') {
             askIntern();
         } else if (roleInput.role === 'Exit') {
+            console.log(employeeArr);
             console.log("Exit: I am finished!");
-            writeFile();
+            buildTeam();
         }
     })
 };
@@ -103,11 +103,11 @@ const askEngineer = () => {
             name: 'engGitHub'
         }
     ]).then((answers) => {
-        console.log(answers)
+        // console.log(answers)
         const engineer = new Engineer(answers.engName, answers.engId, answers.engEmail, answers.engGitHub)
         employeeArr.push(engineer)
         console.log(engineer)
-        console.log(engineer.getRole())
+        // console.log(engineer.getRole())
     })
     .then( () => mainMenu())
 
@@ -137,33 +137,23 @@ const askIntern = () => {
             name: 'intSchool'
         }
     ]).then((answers) => {
-        console.log(answers)
+        // console.log(answers)
         const intern = new Intern(answers.intName, answers.intId, answers.intEmail, answers.intSchool)
         employeeArr.push(intern)
         console.log(intern)
-        console.log(intern.getRole())
+        // console.log(intern.getRole())
     })
     .then( () => mainMenu())
 }
 
-// function buildTeam() {
-//     // Create the output directory if the output path doesn't exist
-//     if (!fs.existsSync(OUTPUT_DIR)) {
-//       fs.mkdirSync(OUTPUT_DIR)
-//     }
-//     fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
-// }
+function buildTeam() {
+    // Create the output directory if the output path doesn't exist
+    if (!fs.existsSync('Index.html')) {
+      fs.mkdirSync('Index.html')
+    }
+    fs.writeFileSync('./dist/Index.html', render(employeeArr), "utf-8");
+}
 
-// const writeFile = employeeArr => {
-//     fs.writeFile('index.html', employeeArr, err => {
-//         if (err) {
-//             console.log(err);
-//             return;
-//         } else {
-//             console.log( "Team profile has been successfully created!")
-//         }
-//     })
-// };
 
 // initiate command logic
 askManager();
