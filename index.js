@@ -32,7 +32,6 @@ const askManager = () => {
         }
     ]).then((answers) => {
         console.log(answers)
-        // let [mngrName, mngId, mngrEmail, mngOfficeNumber] = answers;
         const manager = new Manager(answers.mngrName, answers.mngId, answers.mngrEmail, answers.mngOfficeNumber)
         
         employeeArr.push(manager)
@@ -40,7 +39,7 @@ const askManager = () => {
         console.log(manager.getRole())
         return;
     })
-    // attempt to call mainMenu() function after askManager() function has completed
+    //call mainMenu() function after askManager() function has completed
     .then( () => mainMenu())
     
 };
@@ -48,7 +47,7 @@ console.log(
 
 )
 
-// Second set of questions: main menu will prompt to go chose who to set up: Manager, Engineer, or Intern
+// Main Menu of questions- alwasy asks if want to crate an additional employee: Manager, Engineer, or Intern
 const mainMenu = () => {
     promptRole()
     .then(roleInput => {
@@ -67,6 +66,7 @@ const mainMenu = () => {
     })
 };
 
+// used in funciton abore- list options of Manager, Engineer, Intern, or Exit (complete)
 const promptRole = () => {
     return inquirer.prompt([
         {
@@ -111,7 +111,6 @@ const askEngineer = () => {
     })
     .then( () => mainMenu())
 
-
 }
 
 // Intern set of prompts
@@ -145,11 +144,7 @@ const askIntern = () => {
         console.log(intern.getRole())
     })
     .then( () => mainMenu())
-
-
 }
-
-askManager();
 
 // function buildTeam() {
 //     // Create the output directory if the output path doesn't exist
@@ -169,3 +164,6 @@ askManager();
 //         }
 //     })
 // };
+
+// initiate command logic
+askManager();
