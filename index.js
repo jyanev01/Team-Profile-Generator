@@ -73,7 +73,7 @@ const promptRole = () => {
             type: 'list',
             name: 'role',
             message: 'What type of employee would you like to add?',
-            choices: ['Manager', 'Engineer', 'Intern', 'Exit: Build My Team'],
+            choices: ['Manager', 'Engineer', 'Intern', 'Exit'],
         }
     ])
 }
