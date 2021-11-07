@@ -59,8 +59,8 @@ const mainMenu = () => {
         } else if (roleInput.role === 'Intern') {
             askIntern();
         } else if (roleInput.role === 'Exit') {
-            console.log(employeeArr);
             console.log("Exit: I am finished!");
+            console.log(employeeArr);
             buildTeam();
         }
     })
@@ -73,7 +73,7 @@ const promptRole = () => {
             type: 'list',
             name: 'role',
             message: 'What type of employee would you like to add?',
-            choices: ['Manager', 'Engineer', 'Intern', 'Exit'],
+            choices: ['Manager', 'Engineer', 'Intern', 'Exit: Build My Team'],
         }
     ])
 }
